@@ -25,6 +25,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <link rel="stylesheet" href="vistas/dist/css/skins/skin-blue.min.css">
         <!-- iCheck -->
         <link rel="stylesheet" href="vistas/plugins/iCheck/square/blue.css">
+        <!-- Morris chart -->
+        <link rel="stylesheet" href="vistas/bower_components/morris.js/morris.css">
+        <!-- jvectormap -->
+        <link rel="stylesheet" href="vistas/bower_components/jvectormap/jquery-jvectormap.css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -36,6 +40,41 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Google Font -->
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+
+
+
+
+        <!-- REQUIRED JS SCRIPTS -->
+
+        <!-- jQuery 3 -->
+        <script src="vistas/bower_components/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap 3.3.7 -->
+        <script src="vistas/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="vistas/dist/js/adminlte.min.js"></script>
+
+        <!-- Optionally, you can add Slimscroll and FastClick plugins.
+             Both of these plugins are recommended to enhance the
+             user experience. -->
+
+
+
+        <!-- iCheck -->
+        <script src="vistas/plugins/iCheck/icheck.min.js"></script>
+        <script>
+            $(function () {
+                $('input').iCheck({
+                    checkboxClass: 'icheckbox_square-blue',
+                    radioClass: 'iradio_square-blue',
+                    increaseArea: '20%' // optional
+                });
+            });
+        </script>
+
+        <!-- Morris.js charts -->
+        <script src="vistas/bower_components/raphael/raphael.min.js"></script>
+        <script src="vistas/bower_components/morris.js/morris.min.js"></script>
     </head>
 
     <body class="hold-transition skin-blue sidebar-mini login-page">
@@ -113,31 +152,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
 
-        <!-- REQUIRED JS SCRIPTS -->
 
-        <!-- jQuery 3 -->
-        <script src="vistas/bower_components/jquery/dist/jquery.min.js"></script>
-        <!-- Bootstrap 3.3.7 -->
-        <script src="vistas/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <!-- AdminLTE App -->
-        <script src="vistas/dist/js/adminlte.min.js"></script>
-
-        <!-- Optionally, you can add Slimscroll and FastClick plugins.
-             Both of these plugins are recommended to enhance the
-             user experience. -->
-
-
-
-        <!-- iCheck -->
-        <script src="vistas/plugins/iCheck/icheck.min.js"></script>
-        <script>
-            $(function () {
-                $('input').iCheck({
-                    checkboxClass: 'icheckbox_square-blue',
-                    radioClass: 'iradio_square-blue',
-                    increaseArea: '20%' // optional
-                });
-            });
-        </script>
     </body>
 </html>

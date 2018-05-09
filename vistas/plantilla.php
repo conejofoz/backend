@@ -27,6 +27,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <link rel="stylesheet" href="vistas/plugins/iCheck/square/blue.css">
         <!-- Morris chart -->
         <link rel="stylesheet" href="vistas/bower_components/morris.js/morris.css">
+
         <!-- jvectormap -->
         <link rel="stylesheet" href="vistas/bower_components/jvectormap/jquery-jvectormap.css">
 
@@ -69,12 +70,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     radioClass: 'iradio_square-blue',
                     increaseArea: '20%' // optional
                 });
+                /* jQueryknob */
+                $('.knob').knob();
             });
         </script>
 
         <!-- Morris.js charts -->
         <script src="vistas/bower_components/raphael/raphael.min.js"></script>
         <script src="vistas/bower_components/morris.js/morris.min.js"></script>
+        <!-- jQuery Knob Chart -->
+        <script src="vistas/bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
+        <!-- jvectormap -->
+        <script src="vistas/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+        <script src="vistas/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>   
+        <!-- ChartJS -->
+        <script src="vistas/bower_components/Chart.js/Chart.js"></script>
     </head>
 
     <body class="hold-transition skin-blue sidebar-mini login-page">

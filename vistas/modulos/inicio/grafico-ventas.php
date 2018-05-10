@@ -1,3 +1,68 @@
+<?php
+
+error_reporting(0);
+$ventas = ControladorVentas::ctrMostrarVentas();
+$totalVentas = ControladorVentas::ctrMostrarTotalVentas();
+
+$arrayFechas = array();
+$arrayFechaPago = array();
+$totalPaypal = 0;
+
+foreach ($ventas as $key => $value) {
+
+	/*=============================================
+  	PORCENTAJES MÉTODOS DE PAGO PAYPAL
+  	=============================================*/
+  	if($value["metodo"] == "paypal"){
+
+  		 $totalPaypal += $value["pago"];
+
+  		 $porcentajePaypal = $totalPaypal * 100 / $totalVentas["total"];
+  	}
+
+  	/*=============================================
+  	PORCENTAJES MÉTODOS DE PAGO PAYU
+  	=============================================*/
+  	if($value["metodo"] == "payu"){
+
+  		 $totalPayu += $value["pago"];
+
+  		 $porcentajePayu = $totalPayu * 100 / $totalVentas["total"];
+  	}
+
+	/*=============================================
+  	GRÁFICA EN LÍNEA
+  	=============================================*/
+	
+	if($value["metodo"] != "gratis"){
+
+		#Capturamos sólo el año y el mes
+		$fecha = substr($value["fecha"],0,7);
+
+		#Capturamos las fechas en un array
+		array_push($arrayFechas, $fecha);
+
+		#Capturamos las fechas y los pagos en un mismo array
+		$arrayFechaPago = array($fecha => $value["pago"]);
+
+		#Sumamos los pagos que ocurrieron el mismo mes
+		foreach ($arrayFechaPago as $key => $value) {
+			
+			$sumaPagosMes[$key] += $value;
+		}
+
+	}
+
+
+
+}
+
+#Evitamos repetir fecha
+$noRepetirFechas = array_unique($arrayFechas);
+
+?>
+
+
 <!--=====================================
 GRÁFICO DE VENTAS
 ======================================-->
@@ -37,7 +102,7 @@ GRÁFICO DE VENTAS
 	    
 	      <div class="col-xs-6 text-center" style="border-right: 1px solid #f4f4f4">
 	    
-	        <input type="text" class="knob" data-readonly="true" value="20" data-width="60" data-height="60" data-fgColor="#39CCCC">
+	        <input type="text" class="knob" data-readonly="true" value="<?php echo round($porcentajePaypal); ?>" data-width="60" data-height="60" data-fgColor="#39CCCC">
 
 	        <div class="knob-label">Paypal</div>
 	      
@@ -45,7 +110,7 @@ GRÁFICO DE VENTAS
 
 	      <div class="col-xs-6 text-center" style="border-right: 1px solid #f4f4f4">
 	        
-	        <input type="text" class="knob" data-readonly="true" value="50" data-width="60" data-height="60" data-fgColor="#39CCCC">
+	        <input type="text" class="knob" data-readonly="true" value="<?php echo round($porcentajePayu); ?>" data-width="60" data-height="60" data-fgColor="#39CCCC">
 
 	        <div class="knob-label">Payu</div>
 	      
@@ -66,20 +131,23 @@ var line = new Morris.Line({
     element          : 'line-chart',
     resize           : true,
     data             : [
-      { y: '2011 Q1', item1: 2666 },
-      { y: '2011 Q2', item1: 2778 },
-      { y: '2011 Q3', item1: 4912 },
-      { y: '2011 Q4', item1: 3767 },
-      { y: '2012 Q1', item1: 6810 },
-      { y: '2012 Q2', item1: 5670 },
-      { y: '2012 Q3', item1: 4820 },
-      { y: '2012 Q4', item1: 15073 },
-      { y: '2013 Q1', item1: 10687 },
-      { y: '2013 Q2', item1: 8432 }
+
+    <?php
+
+    	foreach ($noRepetirFechas as $value) {
+    	
+    	echo "{ y: '".$value."', ventas: ".$sumaPagosMes[$value]." },";
+    		
+    	}
+
+      echo "{ y: '".$value."', ventas: ".$sumaPagosMes[$value]." }";
+
+    ?>
+
     ],
     xkey             : 'y',
-    ykeys            : ['item1'],
-    labels           : ['Item 1'],
+    ykeys            : ['ventas'],
+    labels           : ['Ventas'],
     lineColors       : ['#efefef'],
     lineWidth        : 2,
     hideHover        : 'auto',
@@ -89,6 +157,7 @@ var line = new Morris.Line({
     pointStrokeColors: ['#efefef'],
     gridLineColor    : '#efefef',
     gridTextFamily   : 'Open Sans',
+    preUnits		 : '$',
     gridTextSize     : 10
   });
 	

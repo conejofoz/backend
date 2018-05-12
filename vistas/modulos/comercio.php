@@ -1,46 +1,82 @@
-<!-- =============================================== -->
+<div class="content-wrapper">
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Gestor comercio
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        <li class="active">Gestor comercio</li>
-      </ol>
-    </section>
+  <section class="content-header">
 
-    <!-- Main content -->
-    <section class="content">
+    <h1>
+      Gestor comercio
+    </h1>
 
-      <!-- Default box -->
-      <div class="box">
-        <div class="box-header with-border">
-          <h3 class="box-title">Title</h3>
+    <ol class="breadcrumb">
+      
+      <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
+      
+      <li class="active">Gestor comercio</li>
+    
+    </ol>
 
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
-                    title="Collapse">
-              <i class="fa fa-minus"></i></button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fa fa-times"></i></button>
-          </div>
-        </div>
-        <div class="box-body">
-          Start creating your amazing application!
-        </div>
-        <!-- /.box-body -->
-        <div class="box-footer">
-          Footer
-        </div>
-        <!-- /.box-footer-->
+  </section>
+
+  <section class="content">
+
+    <div class="row">
+
+      <div class="col-md-6 col-xs-12">
+        
+      <!--=====================================
+      BLOQUE 1
+      ======================================-->
+      
+      <?php
+
+        /*=============================================
+        ADMINISTRACIÓN DE LOGOTIPO E ICONO
+        =============================================*/
+
+        include "comercio/logotipo.php";
+
+        /*=====================================
+        ADMINISTRAR COLORES
+        ======================================*/
+  
+        include "comercio/colores.php";
+
+        /*=====================================
+        ADMINISTRAR REDES SOCIALES
+        ======================================*/
+  
+        include "comercio/redSocial.php";
+        
+      ?>
+      
       </div>
-      <!-- /.box -->
 
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+
+      <div class="col-md-6">
+        
+      <!--=====================================
+      BLOQUE 2
+      ======================================-->
+
+        <?php
+        
+       /*=====================================
+        ADMINISTRAR CÓDIGOS
+        ======================================*/
+  
+        include "comercio/codigos.php";
+
+        /*=====================================
+        ADMINISTRAR COMERCIO
+        ======================================*/
+  
+        include "comercio/informacion.php";
+
+        ?>
+   
+      </div>
+
+    </div>
+ 
+  </section>
+
+</div>

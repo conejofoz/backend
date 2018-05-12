@@ -38,4 +38,30 @@ class ModeloComercio {
         $stmt = null;
     }
 
+    /* =============================================
+      ACTUALIZAR COLORES
+      ============================================= */
+
+    static public function mdlActualizarColores($tabla, $id, $datos) {
+
+        $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET barraSuperior = :barraSuperior, textoSuperior = :textoSuperior, colorFondo = :colorFondo, colorTexto = :colorTexto  WHERE id = :id");
+
+        $stmt->bindParam(":barraSuperior", $datos["barraSuperior"], PDO::PARAM_STR);
+        $stmt->bindParam(":textoSuperior", $datos["textoSuperior"], PDO::PARAM_STR);
+        $stmt->bindParam(":colorFondo", $datos["colorFondo"], PDO::PARAM_STR);
+        $stmt->bindParam(":colorTexto", $datos["colorTexto"], PDO::PARAM_STR);
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+
+        if ($stmt->execute()) {
+
+            return "ok";
+        } else {
+
+            return "error";
+        }
+
+        $stmt->close();
+        $stmt = null;
+    }
+
 }

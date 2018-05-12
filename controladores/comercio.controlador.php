@@ -107,5 +107,24 @@ class ControladorComercio {
         $respuesta = ModeloComercio::mdlActualizarLogoIcono($tabla, $id, $item, $valorNuevo);
         return $respuesta;
     }
+    
+    
+    
+    
+    	/*=============================================
+	ACTUALIZAR COLORES
+	=============================================*/
+
+	static public function ctrActualizarColores($datos){
+
+		$tabla = "plantilla";
+		$id = 1;
+
+		$respuesta = ModeloComercio::mdlActualizarColores($tabla, $id, $datos);
+
+		return $respuesta;
+
+
+	}
 
 }

@@ -66,27 +66,64 @@ class AjaxComercio {
 
         echo $respuesta;
     }
-    
-    
-    /*=============================================
-	CAMBIAR SCRIPT
-	=============================================*/
 
-	public $apiFacebook;
-	public $pixelFacebook;
-	public $googleAnalytics;
+    /* =============================================
+      CAMBIAR SCRIPT
+      ============================================= */
 
-	public function ajaxCambiarScript(){
+    public $apiFacebook;
+    public $pixelFacebook;
+    public $googleAnalytics;
 
-		$datos = array("apiFacebook"=>$this->apiFacebook,
-					   "pixelFacebook"=>$this->pixelFacebook,
-					   "googleAnalytics"=>$this->googleAnalytics);
+    public function ajaxCambiarScript() {
 
-		$respuesta = ControladorComercio::ctrActualizarScript($datos);
+        $datos = array("apiFacebook" => $this->apiFacebook,
+            "pixelFacebook" => $this->pixelFacebook,
+            "googleAnalytics" => $this->googleAnalytics);
 
-		echo $respuesta;
+        $respuesta = ControladorComercio::ctrActualizarScript($datos);
 
-	}
+        echo $respuesta;
+    }
+
+    /* =============================================
+      CAMBIAR INFORMACIÓN
+      ============================================= */
+
+    public $impuesto;
+    public $envioNacional;
+    public $envioInternacional;
+    public $tasaMinimaNal;
+    public $tasaMinimaInt;
+    public $seleccionarPais;
+    public $modoPaypal;
+    public $clienteIdPaypal;
+    public $llaveSecretaPaypal;
+    public $modoPayu;
+    public $merchantIdPayu;
+    public $accountIdPayu;
+    public $apiKeyPayu;
+
+    public function ajaxCambiarInformacion() {
+
+        $datos = array("impuesto" => $this->impuesto,
+            "envioNacional" => $this->envioNacional,
+            "envioInternacional" => $this->envioInternacional,
+            "tasaMinimaNal" => $this->tasaMinimaNal,
+            "tasaMinimaInt" => $this->tasaMinimaInt,
+            "seleccionarPais" => $this->seleccionarPais,
+            "modoPaypal" => $this->modoPaypal,
+            "clienteIdPaypal" => $this->clienteIdPaypal,
+            "llaveSecretaPaypal" => $this->llaveSecretaPaypal,
+            "modoPayu" => $this->modoPayu,
+            "merchantIdPayu" => $this->merchantIdPayu,
+            "accountIdPayu" => $this->accountIdPayu,
+            "apiKeyPayu" => $this->apiKeyPayu);
+
+        $respuesta = ControladorComercio::ctrActualizarInformacion($datos);
+
+        echo $respuesta;
+    }
 
 }
 
@@ -146,16 +183,39 @@ if (isset($_POST["redesSociales"])) {
 }
 
 
-/*=============================================
-CAMBIAR SCRIPT
-=============================================*/	
+/* =============================================
+  CAMBIAR SCRIPT
+  ============================================= */
 
-if(isset($_POST["apiFacebook"])){
+if (isset($_POST["apiFacebook"])) {
 
-	$script = new AjaxComercio();
-	$script -> apiFacebook = $_POST["apiFacebook"];
-	$script -> pixelFacebook = $_POST["pixelFacebook"];
-	$script -> googleAnalytics = $_POST["googleAnalytics"];
-	$script -> ajaxCambiarScript();
+    $script = new AjaxComercio();
+    $script->apiFacebook = $_POST["apiFacebook"];
+    $script->pixelFacebook = $_POST["pixelFacebook"];
+    $script->googleAnalytics = $_POST["googleAnalytics"];
+    $script->ajaxCambiarScript();
+}
 
+
+/* =============================================
+  CAMBIAR INFORMACION
+  ============================================= */
+
+if (isset($_POST["impuesto"])) {
+
+    $informacion = new AjaxComercio();
+    $informacion->impuesto = $_POST["impuesto"];
+    $informacion->envioNacional = $_POST["envioNacional"];
+    $informacion->envioInternacional = $_POST["envioInternacional"];
+    $informacion->tasaMinimaNal = $_POST["tasaMinimaNal"];
+    $informacion->tasaMinimaInt = $_POST["tasaMinimaInt"];
+    $informacion->seleccionarPais = $_POST["seleccionarPais"];
+    $informacion->modoPaypal = $_POST["modoPaypal"];
+    $informacion->clienteIdPaypal = $_POST["clienteIdPaypal"];
+    $informacion->llaveSecretaPaypal = $_POST["llaveSecretaPaypal"];
+    $informacion->modoPayu = $_POST["modoPayu"];
+    $informacion->merchantIdPayu = $_POST["merchantIdPayu"];
+    $informacion->accountIdPayu = $_POST["accountIdPayu"];
+    $informacion->apiKeyPayu = $_POST["apiKeyPayu"];
+    $informacion->ajaxCambiarInformacion();
 }

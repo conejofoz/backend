@@ -159,5 +159,23 @@ class ControladorComercio {
 		return $respuesta;
 
 	}
+        
+        
+        
+        /*=============================================
+	ACTUALIZAR INFORMACION
+	=============================================*/
+
+	static public function ctrActualizarInformacion($datos){
+
+		$tabla = "comercio";
+		$id = 1;
+
+		$respuesta = ModeloComercio::mdlActualizarInformacion($tabla, $id, $datos);
+
+		return $respuesta;
+
+
+	}
 
 }

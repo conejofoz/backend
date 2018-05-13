@@ -51,10 +51,44 @@ class AjaxComercio {
         echo $respuesta;
     }
 
+    /* =============================================
+      CAMBIAR REDES SOCIALES
+      ============================================= */
+
+    public $redesSociales;
+
+    public function ajaxCambiarRedes() {
+
+        $item = "redesSociales";
+        $valor = $this->redesSociales;
+
+        $respuesta = ControladorComercio::ctrActualizarLogoIcono($item, $valor);
+
+        echo $respuesta;
+    }
+    
+    
+    /*=============================================
+	CAMBIAR SCRIPT
+	=============================================*/
+
+	public $apiFacebook;
+	public $pixelFacebook;
+	public $googleAnalytics;
+
+	public function ajaxCambiarScript(){
+
+		$datos = array("apiFacebook"=>$this->apiFacebook,
+					   "pixelFacebook"=>$this->pixelFacebook,
+					   "googleAnalytics"=>$this->googleAnalytics);
+
+		$respuesta = ControladorComercio::ctrActualizarScript($datos);
+
+		echo $respuesta;
+
+	}
+
 }
-
-
-
 
 /*
  * 
@@ -96,4 +130,32 @@ if (isset($_POST["barraSuperior"])) {
     $colores->colorFondo = $_POST["colorFondo"];
     $colores->colorTexto = $_POST["colorTexto"];
     $colores->ajaxCambiarColor();
+}
+
+
+
+/* =============================================
+  CAMBIAR REDES SOCIALES
+  ============================================= */
+
+if (isset($_POST["redesSociales"])) {
+
+    $redesSociales = new AjaxComercio();
+    $redesSociales->redesSociales = $_POST["redesSociales"];
+    $redesSociales->ajaxCambiarRedes();
+}
+
+
+/*=============================================
+CAMBIAR SCRIPT
+=============================================*/	
+
+if(isset($_POST["apiFacebook"])){
+
+	$script = new AjaxComercio();
+	$script -> apiFacebook = $_POST["apiFacebook"];
+	$script -> pixelFacebook = $_POST["pixelFacebook"];
+	$script -> googleAnalytics = $_POST["googleAnalytics"];
+	$script -> ajaxCambiarScript();
+
 }

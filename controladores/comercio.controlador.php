@@ -22,6 +22,9 @@ class ControladorComercio {
         /*
          * CAMBIANDO LOGOTIPO O ICONO
          */
+        
+        $valorNuevo = $valor; //metodo reciclado se valor não for um arquivo
+        
         if (isset($valor["tmp_name"])) {
             list($ancho, $alto) = getimagesize($valor["tmp_name"]);
             /*
@@ -124,6 +127,36 @@ class ControladorComercio {
 
 		return $respuesta;
 
+
+	}
+        
+        /*=============================================
+	ACTUALIZAR SCRIPT
+	=============================================*/
+
+	static public function ctrActualizarScript($datos){
+
+		$tabla = "plantilla";
+		$id = 1;
+
+		$respuesta = ModeloComercio::mdlActualizarScript($tabla, $id, $datos);
+
+		return $respuesta;
+
+
+	}
+
+	/*=============================================
+	SELECCIONAR COMERCIO
+	=============================================*/
+
+	static public function ctrSeleccionarComercio(){
+
+		$tabla = "comercio";
+
+		$respuesta = ModeloComercio::mdlSeleccionarComercio($tabla);
+
+		return $respuesta;
 
 	}
 

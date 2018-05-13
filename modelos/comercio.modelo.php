@@ -63,5 +63,56 @@ class ModeloComercio {
         $stmt->close();
         $stmt = null;
     }
+    
+    
+    
+    
+    	/*=============================================
+	ACTUALIZAR SCRIPT
+	=============================================*/
+
+	static public function mdlActualizarScript($tabla, $id, $datos){
+
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET apiFacebook = :apiFacebook, pixelFacebook = :pixelFacebook, googleAnalytics = :googleAnalytics WHERE id = :id");
+
+		$stmt->bindParam(":apiFacebook", $datos["apiFacebook"], PDO::PARAM_STR);
+		$stmt->bindParam(":pixelFacebook", $datos["pixelFacebook"], PDO::PARAM_STR);
+		$stmt->bindParam(":googleAnalytics", $datos["googleAnalytics"], PDO::PARAM_STR);
+		$stmt->bindParam(":id", $id, PDO::PARAM_INT);
+
+		if($stmt->execute()){
+
+			return "ok";
+
+		}else{
+
+			return "error";
+		
+		}
+
+		$stmt->close();
+		$stmt = null;
+
+	}
+
+	/*=============================================
+	SELECCIONAR COMERCIO
+	=============================================*/
+
+	static public function mdlSeleccionarComercio($tabla){
+
+		$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+
+		$stmt -> execute();
+
+		return $stmt -> fetch();
+
+		$stmt -> close();
+
+		$stmt = null;
+
+	}
+
+
 
 }

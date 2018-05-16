@@ -57,6 +57,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         CSS PERSONALIZADO
         ================================================-->
         <link rel="stylesheet" href="vistas/css/plantilla.css">
+        <link rel="stylesheet" href="vistas/css/slide.css">
 
 
 
@@ -66,6 +67,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <!-- jQuery 3 -->
         <script src="vistas/bower_components/jquery/dist/jquery.min.js"></script>
+        <!-- jQuery UI 1.11.4 -->
+        <script src="vistas/bower_components/jquery-ui/jquery-ui.min.js"></script>
         <!-- Bootstrap 3.3.7 -->
         <script src="vistas/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <!-- AdminLTE App -->
@@ -181,6 +184,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         =========================================-->
         <script src="vistas/js/plantilla.js"></script>
         <script src="vistas/js/gestorComercio.js"></script>
+        <script src="vistas/js/gestorSlide.js"></script>
 
     </body>
 </html>

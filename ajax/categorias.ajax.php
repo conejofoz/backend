@@ -44,6 +44,8 @@ class AjaxCategorias{
 
     $respuesta = ControladorCategorias::ctrMostrarCategorias($item, $valor);
 
+    //var_dump($respuesta);
+    //return;
     echo json_encode($respuesta);
 
   }

@@ -232,9 +232,7 @@ function activarOferta(evento){
 		$(".datosOferta").hide();
 		$(".valorOferta").prop("required",false);
 		$(".valorOferta").val("");
-
 	}
-
 }
 
 $(".selActivarOferta").change(function(){

@@ -155,7 +155,7 @@ MODAL AGREGAR CATEGORÍA
                 
                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
 
-                <input type="text" class="form-control input-lg pClavesCategoria tagsInput" data-role="tagsinput" placeholder="Ingresar palabras claves" name="pClavesCategoria" required> 
+                <input type="text" class="form-control input-lg pClavesCategoria tagsInput" data-role="tagsinput" placeholder="Ingresar palabras claves separadas por coma" name="pClavesCategoria" required> 
 
               </div> 
 

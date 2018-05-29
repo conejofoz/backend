@@ -216,6 +216,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script src="vistas/js/gestorCategorias.js"></script>
         <script src="vistas/js/gestorSubCategorias.js"></script>
         <script src="vistas/js/gestorProductos.js"></script>
+        <script src="vistas/js/gestorBanner.js"></script>
 
 
     </body>

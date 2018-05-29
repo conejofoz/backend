@@ -24,12 +24,18 @@ class TablaProductos {
 
         $productos = ControladorProductos::ctrMostrarProductos($item, $valor);
 
+        //print_r($productos);
+
+        if($productos){
+            
+
         $datosJson = '
 
   		{	
   			"data":[';
 
-        for ($i = 0; $i < count($productos) - 1; $i++) {
+        //for ($i = 0; $i < count($productos) - 1; $i++) {
+        for ($i = 0; $i < count($productos); $i++) {
 
             /* =============================================
               TRAER LAS CATEGORÍAS
@@ -247,7 +253,11 @@ class TablaProductos {
 		}';
 
         echo $datosJson;
+    } else{
+        $datosJson = '{"data":[]}';
+        echo $datosJson;
     }
+    } 
 
 }
 

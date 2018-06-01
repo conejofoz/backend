@@ -2,16 +2,16 @@
 CARGAR LA TABLA DINÁMICA DE USUARIOS
 =============================================*/
 
-// $.ajax({
+ $.ajax({
 
-// 	url:"ajax/tablaUsuarios.ajax.php",
-// 	success:function(respuesta){
+ 	url:"ajax/tablaUsuarios.ajax.php",
+ 	success:function(respuesta){
 		
-// 		console.log("respuesta", respuesta);
+ 		console.log("respuesta", respuesta);
 
-// 	}
+ 	}
 
-// })
+ })
 
 $(".tablaUsuarios").DataTable({
 	 "ajax": "ajax/tablaUsuarios.ajax.php",

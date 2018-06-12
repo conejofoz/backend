@@ -8,9 +8,22 @@ USUARIOS
 	<!-- dropdown-toggle -->
 	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 	
-		<img src="vistas/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+		<?php
+
+		if($_SESSION["foto"] == ""){
+
+			echo '<img src="vistas/img/perfiles/default/anonymous.png" class="user-image" alt="User Image">';
+
+		}else{
+
+			echo '<img src="'.$_SESSION["foto"].'" class="user-image" alt="User Image">';
+
+		}
+
+
+		?>	
 		
-		<span class="hidden-xs">Tutoriales a tu Alcance</span>
+		<span class="hidden-xs"><?php echo $_SESSION["nombre"]; ?></span>
 	
 	</a>
 	<!-- dropdown-toggle -->
@@ -20,21 +33,30 @@ USUARIOS
 
 		<li class="user-header">
 		
-			<img src="vistas/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+			<?php
+
+			if($_SESSION["foto"] == ""){
+
+				echo '<img src="vistas/img/perfiles/default/anonymous.png" class="user-image" alt="User Image">';
+
+			}else{
+
+				echo '<img src="'.$_SESSION["foto"].'" class="user-image" alt="User Image">';
+
+			}
+
+
+			?>	
 
 			<p>
-			Tutoriales a tu Alcance
+			<?php echo $_SESSION["nombre"]; ?>
+			<h4 style="color:white"><?php echo $_SESSION["perfil"]; ?></h4>
 			</p>
 		
 		</li>
 
 		<li class="user-footer">
-		
-			<div class="pull-left">
-				
-				<a href="perfil" class="btn btn-default btn-flat">Perfil</a>
-			
-			</div>
+	
 			
 			<div class="pull-right">
 			

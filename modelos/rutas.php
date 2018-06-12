@@ -8,7 +8,7 @@ class Ruta{
 
 	public function ctrRuta(){
 
-		return "http://localhost/frontend/";
+		return "https://ecommerce.infinity-group.net/";
 	
 	}
 
@@ -18,7 +18,7 @@ class Ruta{
 
 	public function ctrRutaServidor(){
 
-		return "http://localhost/backend/";
+		return "https://backend.infinity-group.net//";
 	
 	}
 

@@ -16,7 +16,7 @@ CARGAR LA TABLA DINÁMICA DE SUBCATEGORÍAS
 
 var tablaSubCategorias = $('.tablaSubCategorias').DataTable({
 
-	"ajax":"ajax/tablasubCategorias.ajax.php",
+	"ajax":"ajax/tablaSubCategorias.ajax.php",
 	"deferRender": true,
 	"retrieve": true,
 	"processing": true,

@@ -15,7 +15,7 @@ class AjaxUsuarios{
   public function ajaxActivarUsuario(){
 
   	$respuesta = ModeloUsuarios::mdlActualizarUsuario("usuarios", "verificacion", $this->activarUsuario, "id", $this->activarId);
-
+        
   	echo $respuesta;
 
   }

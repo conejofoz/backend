@@ -3,100 +3,92 @@
 require_once "../controladores/usuarios.controlador.php";
 require_once "../modelos/usuarios.modelo.php";
 
-class TablaUsuarios{
+class TablaUsuarios {
+    /* =============================================
+      MOSTRAR LA TABLA DE USUARIOS
+      ============================================= */
 
- 	/*=============================================
-  	MOSTRAR LA TABLA DE USUARIOS
-  	=============================================*/ 
+    public function mostrarTabla() {
 
-	public function mostrarTabla(){	
+        $item = null;
+        $valor = null;
 
-		$item = null;
- 		$valor = null;
+        $usuarios = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
 
- 		$usuarios = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
-
- 		$datosJson = '{
+        $datosJson = '{
 		 
 	 	"data": [ ';
 
-	 	for($i = 0; $i < count($usuarios); $i++){
+        for ($i = 0; $i < count($usuarios); $i++) {
 
-	 		/*=============================================
-			TRAER FOTO USUARIO
-			=============================================*/
+            /* =============================================
+              TRAER FOTO USUARIO
+              ============================================= */
 
-			if($usuarios[$i]["foto"] != "" ){
+            if ($usuarios[$i]["foto"] != "") {
 
-				$foto = "<img class='img-circle' src='".$usuarios[$i]["foto"]."' width='60px'>";
+                $foto = "<img class='img-circle' src='" . $usuarios[$i]["foto"] . "' width='60px'>";
+            } else {
 
-			}else{
+                $foto = "<img class='img-circle' src='vistas/img/usuarios/default/anonymous.png' width='60px'>";
+            }
 
-				$foto = "<img class='img-circle' src='vistas/img/usuarios/default/anonymous.png' width='60px'>";
-			}
+            /* =============================================
+              REVISAR ESTADO
+              ============================================= */
 
-			/*=============================================
-  			REVISAR ESTADO
-  			=============================================*/
+            if ($usuarios[$i]["modo"] == "directo") {
 
-  			if($usuarios[$i]["modo"] == "directo"){
+                if ($usuarios[$i]["verificacion"] == 1) {
 
-	  			if( $usuarios[$i]["verificacion"] == 1){
+                    $colorEstado = "btn-danger";
+                    $textoEstado = "Desactivado";
+                    $estadoUsuario = 0;
+                } else {
 
-	  				$colorEstado = "btn-danger";
-	  				$textoEstado = "Desactivado";
-	  				$estadoUsuario = 0;
+                    $colorEstado = "btn-success";
+                    $textoEstado = "Activado";
+                    $estadoUsuario = 1;
+                }
 
-	  			}else{
+                $estado = "<button class='btn btn-xs btnActivar " . $colorEstado . "' idUsuario='" . $usuarios[$i]["id"] . "' estadoUsuario='" . $estadoUsuario . "'>" . $textoEstado . "</button>";
+            } else {
 
-	  				$colorEstado = "btn-success";
-	  				$textoEstado = "Activado";
-	  				$estadoUsuario = 1;
-
-	  			}
-
-	  			$estado = "<button class='btn btn-xs btnActivar ".$colorEstado."' idUsuario='". $usuarios[$i]["id"]."' estadoUsuario='".$estadoUsuario."'>".$textoEstado."</button>";
-
-	  		}else{
-
-	  			$estado = "<button class='btn btn-xs btn-info'>Activado</button>";
-
-	  		}
+                $estado = "<button class='btn btn-xs btn-info'>Activado</button>";
+            }
 
 
-	 		/*=============================================
-			DEVOLVER DATOS JSON
-			=============================================*/
+            /* =============================================
+              DEVOLVER DATOS JSON
+              ============================================= */
 
-			$datosJson	 .= '[
-				      "'.($i+1).'",
-				      "'.$usuarios[$i]["nombre"].'",
-				      "'.$usuarios[$i]["email"].'",
-				      "'.$usuarios[$i]["modo"].'",
-				      "'.$foto.'",
-				      "'.$estado.'",
-				      "'.$usuarios[$i]["fecha"].'"    
+            $datosJson .= '[
+				      "' . ($i + 1) . '",
+				      "' . $usuarios[$i]["nombre"] . '",
+				      "' . $usuarios[$i]["email"] . '",
+				      "' . $usuarios[$i]["modo"] . '",
+				      "' . $foto . '",
+				      "' . $estado . '",
+				      "' . $usuarios[$i]["fecha"] . '"    
 				    ],';
+        }
 
-	 	}
+        $datosJson = substr($datosJson, 0, -1);
 
-	 	$datosJson = substr($datosJson, 0, -1);
-
-		$datosJson.=  ']
+        $datosJson .= ']
 			  
-		}'; 
+		}';
 
-		echo $datosJson;
-
- 	}
+        echo $datosJson;
+    }
 
 }
 
-/*=============================================
-ACTIVAR TABLA DE VENTAS
-=============================================*/ 
+/* =============================================
+  ACTIVAR TABLA DE VENTAS
+  ============================================= */
 $activar = new TablaUsuarios();
-$activar -> mostrarTabla();
+$activar->mostrarTabla();
 
 
 

@@ -10,7 +10,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Tienda Online | Panel de Control</title>
+        <title>Tienda Online Infinity | Panel de Control</title>
 
 
         <!-- Tell the browser to be responsive to screen width -->
@@ -176,6 +176,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                     include "modulos/" . $_GET["ruta"] . ".php";
                 }
+            } else {
+               include "modulos/inicio.php";
             }
 
             /* =============================================
@@ -220,6 +222,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script src="vistas/js/gestorVentas.js"></script>
         <script src="vistas/js/gestorVisitas.js"></script>
         <script src="vistas/js/gestorUsuarios.js"></script>
+        <script src="vistas/js/gestorAdministradores.js"></script>
+        <script src="vistas/js/gestorNotificaciones.js"></script>
 
 
     </body>

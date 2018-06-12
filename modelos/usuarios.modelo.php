@@ -67,7 +67,7 @@ class ModeloUsuarios{
 		$stmt -> bindParam(":".$item2, $valor2, PDO::PARAM_STR);
 
 		if($stmt -> execute()){
-
+                    echo 'atualizaou...............';
 			return "ok";
 		
 		}else{

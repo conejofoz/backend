@@ -2,43 +2,63 @@
 
 require_once "conexion.php";
 
-class ModeloVentas{
+class ModeloVentas {
+    /* =============================================
+      MOSTRAR EL TOTAL DE VENTAS
+      ============================================= */
 
-	/*=============================================
-	MOSTRAR EL TOTAL DE VENTAS
-	=============================================*/	
+    static public function mdlMostrarTotalVentas($tabla) {
 
-	static public function mdlMostrarTotalVentas($tabla){
+        $stmt = Conexion::conectar()->prepare("SELECT SUM(pago) as total FROM $tabla");
 
-		$stmt = Conexion::conectar()->prepare("SELECT SUM(pago) as total FROM $tabla");
+        $stmt->execute();
 
-		$stmt -> execute();
+        return $stmt->fetch();
 
-		return $stmt -> fetch();
+        $stmt->close();
 
-		$stmt -> close();
+        $stmt = null;
+    }
 
-		$stmt = null;
+    /* =============================================
+      MOSTRAR VENTAS
+      ============================================= */
 
-	}
+    static public function mdlMostrarVentas($tabla) {
 
-	/*=============================================
-	MOSTRAR VENTAS
-	=============================================*/	
+        $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY id DESC");
 
-	static public function mdlMostrarVentas($tabla){
+        $stmt->execute();
 
-		$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+        return $stmt->fetchAll();
 
-		$stmt -> execute();
+        $stmt->close();
 
-		return $stmt -> fetchAll();
+        $stmt = null;
+    }
 
-		$stmt -> close();
+    /* =============================================
+      ACTUALIZAR ENVIO VENTA
+      ============================================= */
 
-		$stmt = null;
+    static public function mdlActualizarVenta($tabla, $item1, $valor1, $item2, $valor2) {
 
-	}
+        $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET $item1 = :$item1 WHERE $item2 = :$item2");
 
+        $stmt->bindParam(":" . $item1, $valor1, PDO::PARAM_STR);
+        $stmt->bindParam(":" . $item2, $valor2, PDO::PARAM_STR);
+
+        if ($stmt->execute()) {
+
+            return "ok";
+        } else {
+
+            return "error";
+        }
+
+        $stmt->close();
+
+        $stmt = null;
+    }
 
 }

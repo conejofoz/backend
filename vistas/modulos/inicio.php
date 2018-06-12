@@ -31,7 +31,11 @@ PÁGINA DE INICIO
 
        <?php
 
+        if($_SESSION["perfil"] == "administrador"){
+
         include "inicio/cajas-superiores.php";
+
+        }
       
       ?>
 
@@ -41,27 +45,50 @@ PÁGINA DE INICIO
     <!-- row -->
     <div class="row">
 
-      <div class="col-lg-6">
+      
         
          <?php
+
+         if($_SESSION["perfil"] == "administrador"){
+
+          echo '<div class="col-lg-6">';
        
           include "inicio/grafico-ventas.php";
-          include "inicio/productos-mas-vendidos.php";      
+          include "inicio/productos-mas-vendidos.php";
+
+          echo '</div>';
+
+          }      
 
         ?>
 
-      </div>
+     
 
-       <div class="col-lg-6">
+
         
          <?php
+
+          if($_SESSION["perfil"] == "administrador"){
+
+            echo ' <div class="col-lg-6">';
+         
+            include "inicio/grafico-visitas.php";
+            include "inicio/ultimos-usuarios.php";
+
+            echo '</div>'; 
+
+          }else{
+
+          echo ' <div class="col-lg-12">';
        
           include "inicio/grafico-visitas.php";
-          include "inicio/ultimos-usuarios.php";     
+          include "inicio/ultimos-usuarios.php";
+
+          echo '</div>';
+
+          }         
 
         ?>
-
-      </div>
 
        <div class="col-lg-12">
 

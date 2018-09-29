@@ -142,10 +142,10 @@ class ControladorProductos {
 
                     list($ancho, $alto) = getimagesize($datos["fotoPortada"]["tmp_name"]);
 
-                    //$nuevoAncho = 1280;
-                    //$nuevoAlto = 720;
-                    $nuevoAncho = 951;
-                    $nuevoAlto = 600;
+                    $nuevoAncho = 1280;
+                    $nuevoAlto = 720;
+                    //$nuevoAncho = 951;
+                    //$nuevoAlto = 600;
 
 
                     /* =============================================
@@ -208,8 +208,10 @@ class ControladorProductos {
 
                     list($ancho, $alto) = getimagesize($datos["fotoPrincipal"]["tmp_name"]);
 
-                    $nuevoAncho = 951;
-                    $nuevoAlto = 600;
+                    //$nuevoAncho = 951;
+                    //$nuevoAlto = 600;
+                    $nuevoAncho = 450;
+                    $nuevoAlto = 400;
 
                     /* =============================================
                       DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP

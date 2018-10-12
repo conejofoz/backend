@@ -210,8 +210,8 @@ class ControladorProductos {
 
                     //$nuevoAncho = 951;
                     //$nuevoAlto = 600;
-                    $nuevoAncho = 450;
-                    $nuevoAlto = 400;
+                    $nuevoAncho = 400;
+                    $nuevoAlto = 450;
 
                     /* =============================================
                       DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP

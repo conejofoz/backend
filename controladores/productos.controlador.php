@@ -126,7 +126,7 @@ class ControladorProductos {
 
         if (isset($datos["tituloProducto"])) {
 
-            if (preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $datos["tituloProducto"]) && preg_match('/^[,\\.\\a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["descripcionProducto"])) {
+            if (preg_match('/^[a-zA-Z0-9-ñÑáéíóúÁÉÍÓÚçÇãÃ ]+$/', $datos["tituloProducto"]) && preg_match('/^[,\\.\\a-zA-Z0-9-ñÑáéíóúÁÉÍÓÚçÇ ]+$/', $_POST["descripcionProducto"])) {
 
                 /* =============================================
                   VALIDAR IMAGEN PORTADA
@@ -385,10 +385,9 @@ class ControladorProductos {
 
                 return $respuesta;
             } else {
-
-                echo'<script>
-
-					swal({
+                
+                echo '<script>
+                swal({
 						  type: "error",
 						  title: "¡El nombre del producto no puede ir vacía o llevar caracteres especiales!",
 						  showConfirmButton: true,
@@ -399,9 +398,10 @@ class ControladorProductos {
 							window.location = "productos";
 
 							}
-						})
+            })
+            </script>';
+                  
 
-			  	</script>';
             }
         }
     }
@@ -414,7 +414,7 @@ class ControladorProductos {
 
         if (isset($datos["idProducto"])) {
 
-            if (preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $datos["tituloProducto"]) && preg_match('/^[,\\.\\a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["descripcionProducto"])) {
+            if (preg_match('/^[a-zA-Z0-9-ñÑáéíóúÁÉÍÓÚçÇãÃ ]+$/', $datos["tituloProducto"]) && preg_match('/^[,\\.\\a-zA-Z0-9-ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["descripcionProducto"])) {
 
                 /* =============================================
                   ELIMINAR LAS FOTOS DE MULTIMEDIA DE LA CARPETA

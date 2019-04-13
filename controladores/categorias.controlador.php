@@ -25,7 +25,7 @@ class ControladorCategorias{
 
 		if(isset($_POST["tituloCategoria"])){
 
-			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["tituloCategoria"]) && preg_match('/^[,\\.\\a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["descripcionCategoria"]) ){
+			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚçÇãÃ ]+$/', $_POST["tituloCategoria"]) && preg_match('/^[,\\.\\a-zA-Z0-9ñÑáéíóúÁÉÍÓÚçÇãÃ ]+$/', $_POST["descripcionCategoria"]) ){
 
 				/*=============================================
 				VALIDAR IMAGEN PORTADA
@@ -248,7 +248,7 @@ class ControladorCategorias{
 
 		if(isset($_POST["editarTituloCategoria"])){
 
-			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarTituloCategoria"]) && preg_match('/^[,\\.\\a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["descripcionCategoria"]) ){
+			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚçÇãÃ ]+$/', $_POST["editarTituloCategoria"]) && preg_match('/^[,\\.\\a-zA-Z0-9ñÑáéíóúÁÉÍÓÚçÇãÃ ]+$/', $_POST["descripcionCategoria"]) ){
 
 				/*=============================================
 				VALIDAR IMAGEN PORTADA

@@ -107,7 +107,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script src="vistas/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
         <script src="vistas/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>   
         <!-- ChartJS -->
-        <script src="vistas/bower_components/Chart.js/Chart.js"></script>
+        <script src="vistas/bower_components/chart.js/Chart.js"></script>
         <!-- SweetAlert 2 https://sweetalert2.github.io/-->
         <script src="vistas/plugins/sweetalert2/sweetalert2.all.js"></script>
         <!-- bootstrap color picker https://farbelous.github.io/bootstrap-colorpicker/v2/-->

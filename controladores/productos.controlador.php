@@ -126,7 +126,7 @@ class ControladorProductos {
 
         if (isset($datos["tituloProducto"])) {
 
-            if (preg_match('/^[a-zA-Z0-9-ñÑáéíóúÁÉÍÓÚçÇãÃ ]+$/', $datos["tituloProducto"]) && preg_match('/^[,\\.\\a-zA-Z0-9-ñÑáéíóúÁÉÍÓÚçÇ ]+$/', $_POST["descripcionProducto"])) {
+            if (preg_match('/^[a-zA-Z0-9-ñÑáéíóúÁÉÍÓÚçÇãÃ ]+$/', $datos["tituloProducto"]) && preg_match('/^[,\\.\\a-zA-Z0-9-ñÑáéíóúÁÉÍÓÚçÇãÃ ]+$/', $_POST["descripcionProducto"])) {
 
                 /* =============================================
                   VALIDAR IMAGEN PORTADA

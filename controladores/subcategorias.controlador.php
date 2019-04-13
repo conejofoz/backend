@@ -24,7 +24,7 @@ class ControladorSubCategorias{
 
 		if(isset($_POST["tituloSubCategoria"])){
 
-			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚçÇãÃ ]+$/', $_POST["tituloSubCategoria"]) && preg_match('/^[,\\.\\a-zA-Z0-9ñÑáéíóúÁÉÍÓÚçÇ ]+$/', $_POST["descripcionSubCategoria"])){
+			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚçÇãÃ ]+$/', $_POST["tituloSubCategoria"]) && preg_match('/^[,\\.\\a-zA-Z0-9ñÑáéíóúÁÉÍÓÚçÇãÃ ]+$/', $_POST["descripcionSubCategoria"])){
 
 				/*=============================================
 				VALIDAR IMAGEN PORTADA
@@ -253,7 +253,7 @@ class ControladorSubCategorias{
 
 		if(isset($_POST["editarTituloSubCategoria"])){
 
-			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚãÃ ]+$/', $_POST["editarTituloSubCategoria"])&& preg_match('/^[,\\.\\a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["descripcionSubCategoria"]) ){
+			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚçÇãÃ ]+$/', $_POST["editarTituloSubCategoria"])&& preg_match('/^[,\\.\\a-zA-Z0-9ñÑáéíóúÁÉÍÓÚçÇãÃ ]+$/', $_POST["descripcionSubCategoria"]) ){
 
 				/*=============================================
 				VALIDAR IMAGEN PORTADA

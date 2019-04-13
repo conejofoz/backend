@@ -13,21 +13,6 @@ $.ajax({
 
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 $('.tablaProductos').DataTable({
 
     "ajax": "ajax/tablaProductos.ajax.php",
@@ -62,20 +47,6 @@ $('.tablaProductos').DataTable({
     }
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*=============================================
  ACTIVAR PRODUCTO
@@ -123,26 +94,6 @@ $('.tablaProductos tbody').on("click", ".btnActivar", function () {
 
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*=============================================
  REVISAR SI EL TITULO DEL PRODUCTO YA EXISTE
  =============================================*/
@@ -180,25 +131,6 @@ $(".validarProducto").change(function () {
 
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*=============================================
  RUTA PRODUCTO
  =============================================*/
@@ -217,42 +149,11 @@ function limpiarUrl(texto) {
     return texto;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 $(".tituloProducto").change(function () {
 
     $(".rutaProducto").val(limpiarUrl($(".tituloProducto").val()));
 
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*=============================================
  AGREGAR MULTIMEDIA
@@ -283,21 +184,6 @@ $(".seleccionarTipo").change(function () {
     }
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*=============================================
  AGREGAR MULTIMEDIA CON DROPZONE
  =============================================*/
@@ -317,7 +203,7 @@ $(".multimediaFisica").dropzone({
 
             arrayFiles.push(file);
 
-            console.log("arrayFiles do dropzone linha 206", arrayFiles);
+            // console.log("arrayFiles", arrayFiles);
 
         })
 
@@ -334,26 +220,6 @@ $(".multimediaFisica").dropzone({
     }
 
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*=============================================
  SELECCIONAR SUBCATEGORÍA
@@ -400,25 +266,6 @@ $(".seleccionarCategoria").change(function () {
     })
 
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*=============================================
  SUBIENDO LA FOTO DE PORTADA
@@ -473,27 +320,6 @@ $(".fotoPortada").change(function () {
 
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*=============================================
  SUBIENDO LA FOTO PRINCIPAL
  =============================================*/
@@ -547,25 +373,6 @@ $(".fotoPrincipal").change(function () {
 
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*=============================================
  ACTIVAR OFERTA
  =============================================*/
@@ -589,41 +396,11 @@ function activarOferta(event) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 $(".selActivarOferta").change(function () {
 
     activarOferta($(this).val())
 
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*=============================================
  VALOR OFERTA
@@ -670,26 +447,6 @@ $("#modalCrearProducto .valorOferta").change(function () {
     }
 
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*=============================================
  SUBIENDO LA FOTO DE LA OFERTA
@@ -743,25 +500,6 @@ $(".fotoOferta").change(function () {
     }
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*=============================================
  CAMBIAR EL PRECIO
  =============================================*/
@@ -772,19 +510,6 @@ $(".precio").change(function () {
     $(".descuentoOferta").val(0);
 
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*=============================================
  GUARDAR EL PRODUCTO
@@ -886,17 +611,6 @@ $(".guardarProducto").click(function () {
         return;
     }
 })
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1006,13 +720,7 @@ function agregarMiProducto(imagen) {
 
     // }, 1000)
 
-}//)//agregar mi produto
-
-
-
-
-
-
+}//)//produtoClick
 
 
 
@@ -1025,6 +733,8 @@ function agregarMiProducto(imagen) {
 /*=============================================
  EDITAR PRODUCTO
  =============================================*/
+
+
 //aa
 $('.tablaProductos tbody').on("click", ".btnEditarProducto", function () {
 
@@ -1077,14 +787,12 @@ $('.tablaProductos tbody').on("click", ".btnEditarProducto", function () {
 
                 $(".multimediaVirtual").hide();
                 $(".multimediaFisica").show();
-                console.log(respuesta[0]["multimedia"])
                 if (respuesta[0]["multimedia"] != "") {
                     console.log('xxxxxxxx')
 
                     var imagenesMultimedia = JSON.parse(respuesta[0]["multimedia"]);
-                    
                     for (var i = 0; i < imagenesMultimedia.length; i++) {
-                        console.log("imagens da multimidia: " + imagenesMultimedia[i].foto)
+
                         $(".previsualizarImgFisico").append(
                                 '<div class="col-md-3">' +
                                 '<div class="thumbnail text-center">' +
@@ -1406,7 +1114,7 @@ $('.tablaProductos tbody').on("click", ".btnEditarProducto", function () {
 
                     if (tipo != "virtual") {
                         console.log('entrou no produto fisico')
-                        console.log(arrayFiles)
+
                         if (arrayFiles.length > 0 && $("#modalEditarProducto .rutaProducto").val() != "") {
                             console.log("entrou no array files")
 
@@ -1463,17 +1171,13 @@ $('.tablaProductos tbody').on("click", ".btnEditarProducto", function () {
                             }
 
                         } else {
-                            console.log("entrou na correção, me custou 3 dias para encontrar o problema");
-                            var jsonLocalStorage = JSON.parse(localStorage.getItem('multimediaFisica'));
-                            multimediaFisica = JSON.stringify(jsonLocalStorage);
-                            editarMiProducto(multimediaFisica);
-//                            console.log('não entrou no array files')
-//                            swal({
-//                                                title: "El array de fotos no debe estar vacío",
-//                                                type: "error",
-//                                                confirmButtonText: "¡Cerrar!"
-//                                            });
-//                                            return;
+                            //console.log('não entrou no array files')
+                            swal({
+                                                title: "El array de fotos no debe estar vacío",
+                                                type: "error",
+                                                confirmButtonText: "¡Cerrar!"
+                                            });
+                                            return;
                         }
 
                     } else {
@@ -1512,18 +1216,6 @@ $('.tablaProductos tbody').on("click", ".btnEditarProducto", function () {
     })//ajax do click na tabela
 
 }) //click na tabela
-
-
-
-
-
-
-
-
-
-
-
-
 
 function editarMiProducto(imagen) {
 
@@ -1645,7 +1337,7 @@ function editarMiProducto(imagen) {
 
     })
 
-}//editar mi producto
+}
 
 
 

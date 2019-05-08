@@ -414,7 +414,7 @@ class ControladorProductos {
 
         if (isset($datos["idProducto"])) {
 
-            if (preg_match('/^[a-zA-Z0-9-ñÑáéíóúÁÉÍÓÚçÇãÃ ]+$/', $datos["tituloProducto"]) && preg_match('/^[,\\.\\a-zA-Z0-9-ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["descripcionProducto"])) {
+            if (preg_match('/^[a-zA-Z0-9-ñÑáéíóúÁÉÍÓÚçÇãÃ ]+$/', $datos["tituloProducto"]) && preg_match('/^[,\\.\\a-zA-Z0-9-ñÑáéíóúÁÉÍÓÚçÇãÃ ]+$/', $_POST["descripcionProducto"])) {
 
                 /* =============================================
                   ELIMINAR LAS FOTOS DE MULTIMEDIA DE LA CARPETA
